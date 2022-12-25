@@ -140,4 +140,3 @@ SELECT * FROM tableName;
 ``` 
 
 Aquí el atributo es `*` para expresar (en Regex, regular expression) todos los atributos de la tabla, devolviendo así todos los atributos de todos los registros. 
-# LearningDB
