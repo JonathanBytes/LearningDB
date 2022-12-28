@@ -121,6 +121,26 @@ Por ejemplo, para cambiar el nombre del registro del ejemplo anterior se haría 
 UPDATE estudiantes set name = 'Johannes' where name = 'Jonathan';
 ```
 
+## Eliminar un registro
+
+Para eliminar un registro junto con todos los datos de sus columnas se hace lo siguiente:
+
+```sql
+DELETE FROM tableName condition(s);
+```
+
+Por ejemplo, para eliminar todos los registros con `gender = 'Male'` se hace lo siguiente:
+
+```sql
+DELETE FROM estudiantes WHERE gender = 'Male';
+```
+
+Para eliminar un registro particular se puede usar el id:
+
+```sql
+DELETE FROM tableName WHERE id = number;
+```
+
 ## Consultas
 
 Aquí recopilaré varias formas de hacer consultas, desde las más simples hasta las más complejas que he podido aprender.
@@ -140,3 +160,52 @@ SELECT * FROM tableName;
 ``` 
 
 Aquí el atributo es `*` para expresar (en Regex, regular expression) todos los atributos de la tabla, devolviendo así todos los atributos de todos los registros. 
+
+### Consultas específicas
+
+En caso de necesitar una columna específica de un registro o un registro específico podemos utilizar las siguientes formas de consulta:
+
+#### Attribute(s)
+
+Recordando la forma general de una consulta:
+
+```sql
+SELECT attribute(s) FROM tableName condition;
+```
+
+En la sección `attribute(s)` podemos especificar el nombre de la o las columnas requeridas para la consulta, por ejemplo:
+
+```sql
+SELECT id_student, name, grade FROM estudiantes where gender = 'Female';
+```
+
+La consulta anterior nos devolverá id, nombre y nota de todos los estudiantes con `Female` en la columna `gender` 
+
+Teniendo lo siguiente:
+
+```sql
+MariaDB [learningDB]> SELECT id_student, name, grade FROM estudiantes where gender = 'Female';
++------------+---------+-------+
+| id_student | name    | grade |
++------------+---------+-------+
+|          2 | Name1   |   4.9 |
+|         16 | Name2   |     4 |
+|         17 | Name3   |   3.1 |
+|         19 | Name4   |     5 |
++------------+---------+-------+
+4 rows in set (0,011 sec)
+```
+
+#### WHERE
+
+Esta es una de las condiciones que se pueden usar a la hora de hacer una consulta SQL, en la mayoría de los casos se usará para obtener registros filtrados, donde solo incluyamos ciertos datos que tengan algun valor en común.
+
+```sql
+SELECT * FROM estudiantes WHERE id = 1;
+```
+
+Esto devolverá todas las columnas del registro con `id = 1` 
+
+### Ejemplos de consultas
+
+

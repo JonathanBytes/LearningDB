@@ -35,8 +35,10 @@ def query(cur,name):
         cur.execute(
             "SELECT * FROM estudiantes WHERE name=?", 
             (name,))
-        for (id_student, name, gender, grade, cuteness) in cur:
-            print(f"ID Student: {id_student}, Name: {name}, Gender: {gender}, Grade:  {grade}, Cuteness: {cuteness}")
+        # for (id_student, name, gender, grade, cuteness) in cur:
+        #     print(f"ID Student: {id_student}, Name: {name}, Gender: {gender}, Grade:  {grade}, Cuteness: {cuteness}")
+        query = cur.fetchone()
+        print(f"ID Student: {query[0]}, Name: {query[1]}, Gender: {query[2]}, Grade:  {query[3]}, Cuteness: {query[4]}")
 
 def close_conn(conn):
     conn.commit()
