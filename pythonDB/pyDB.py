@@ -10,11 +10,11 @@ def new_query():
 
 conn, cur = jdb.start_connection()
 
-print('Ingrese una nueva consulta.')
-name = input('Ingresa un nombre: ')
-jdb.query(cur,name)
+# print('Ingrese una nueva consulta.')
+# name = input('Ingresa un nombre: ')
+# jdb.query(cur,name)
 
-# name, gender, grade, cuteness = new_query()
-# jdb.new_register(cur,name,gender,grade,cuteness,verbose=True)
+name, gender, grade, cuteness = new_query()
+jdb.new_register(cur,name,gender,grade,cuteness,verbose=True)
 
 jdb.close_conn(conn)

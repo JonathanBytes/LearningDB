@@ -208,4 +208,7 @@ Esto devolverá todas las columnas del registro con `id = 1`
 
 ### Ejemplos de consultas
 
+#### LIKE
+
+#### ORDER by 
 
