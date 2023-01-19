@@ -212,3 +212,50 @@ Esto devolverá todas las columnas del registro con `id = 1`
 
 #### ORDER by 
 
+## Conexión con Python
+
+Para utilizar SQL desde Python es necesario tener un módulo acorde al sistema de bases de datos que estamos utilizando, en caso de ser MySQL de Oracle utilizar el módulo destinado para dicho caso, esto para no tener conflictos con drivers y protocolos incompatibles entre bases de datos. 
+
+En este caso al utilizar MariaDB para toda la gestión de la base de datos es recomendable utilizar el módulo en Python con el mismo nombre.
+
+### Módulo mariadb
+
+El módulo para gestionar MariaDB con Python se importa de la siguiente manera:
+
+```python
+import mariadb
+```
+
+### Inicializar conexión
+
+Para inicializar una conexión se utiliza el método `connect` para crear un objeto el cual será la herramienta principal para la gestión de nuestra base de datos.
+
+```python
+conn = mariadb.connect(
+    user="root", 
+    password=password, # Contraseña en texto plano
+    host="localhost", # En caso de tener la DB local
+    port=3306, # Usualmente es el mismo
+    database="databaseName"
+)
+```
+
+Como se puede ver en el bloque de código anterior, la contraseña de la base de datos está en texto plano dentro del código de conexión, para evitar esto, recomiendo utilizar `getpass`, un módulo para Python que permite ingresar la contraseña de forma oculta desde la terminal, funcionando similar a la función `input()`, pero censurada.
+
+En este orden de ideas se utilizaría el siguiente bloque de código antes de inicializar la conexión:
+
+```python
+from getpass import getpass
+password = getpass()
+```
+
+Para mayor comodidad se puede ingresar todo este código en una función como se puede ver en [ jonathanDB.py ](pythonDB/jonathanDB.py)
+
+### Ejecutar SQL desde Python
+
+#### INSERT en Python
+
+#### SELECT en Python
+
+#### Cerrar conexión y commit
+
