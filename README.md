@@ -249,13 +249,19 @@ from getpass import getpass
 password = getpass()
 ```
 
-Para mayor comodidad se puede ingresar todo este código en una función como se puede ver en [ jonathanDB.py ](pythonDB/jonathanDB.py)
+Posterior a esto se debe crear un cursor, el cual será el método que utilizaremos siempre para ejecutar cualquier query de SQL:
 
-### Ejecutar SQL desde Python
+```python
+cur = conn.cursor()
+```
 
-#### INSERT en Python
+Para mayor comodidad se puede ingresar todo este código en una función, como se puede ver en [ jonathanDB.py ](pythonDB/jonathanDB.py) donde existe la función `jonathanDB.start_connection()` que incluye todo lo anterior.
 
-#### SELECT en Python
+## Ejecutar SQL desde Python
 
-#### Cerrar conexión y commit
+### INSERT en Python
+
+### SELECT en Python
+
+### Cerrar conexión y commit
 
